@@ -1,0 +1,6 @@
+2025-07-10 06:26:27,249 - pdf.pdf_processor - INFO - Applied edits to PDF: test_edited_output.pdf
+2025-07-10 06:26:27,301 - pdf.pdf_processor - INFO - Applied edits to PDF: temp_edited_pdfs\edited_fax_job_20250702_123252.pdf
+2025-07-10 06:26:27,301 - pdf.pdf_processor - INFO - Using edited version of fax_job_20250702_123252.pdf
+2025-07-10 06:26:27,535 - pdf.pdf_processor - INFO - Applied edits to PDF: temp_edited_pdfs\edited_fax_job_20250702_153346.pdf
+2025-07-10 06:26:27,536 - pdf.pdf_processor - INFO - Using edited version of fax_job_20250702_153346.pdf
+2025-07-10 06:26:27,982 - pdf.pdf_processor - INFO - Successfully combined 2 PDFs into test_combined_with_edits.pdf

@@ -1,0 +1,235 @@
+# MCFax Application - Cline Rules & Project Intelligence
+
+## File Size Management & Context Protection
+
+### File Size Checking Protocol
+Before reading .log and .xml files, I MUST check their size and follow this protocol:
+
+#### Files Subject to Size Checking
+- **.log files**: Log files can grow very large and overwhelm context
+- **.xml files**: XML files can contain large base64 encoded data
+- **All other files**: Read normally without size checking (most source files are safe)
+
+#### Size Thresholds & Actions
+- **Safe Zone (< 50KB)**: Read automatically, no warning needed
+- **Caution Zone (50KB - 200KB)**: Display warning with file size, proceed unless user objects
+- **Permission Zone (200KB - 500KB)**: STOP and ask user permission before reading
+- **Danger Zone (> 500KB)**: STOP with strong warning, require explicit confirmation
+
+#### Pre-Read Workflow (for .log and .xml files only)
+```
+1. Check file size using system commands or file properties
+2. Calculate current context window usage
+3. Estimate impact of reading the file
+4. Alert user with:
+   - File name and size
+   - Current context usage
+   - Recommendation (read/skip/partial)
+   - Clear options for proceeding
+5. Wait for user decision before proceeding
+```
+
+#### File Size Check Commands (PowerShell)
+```powershell
+# Get file size in bytes
+(Get-Item "filename").Length
+
+# Get file size in KB
+[math]::Round((Get-Item "filename").Length / 1KB, 2)
+
+# Get file size in MB
+[math]::Round((Get-Item "filename").Length / 1MB, 2)
+```
+
+#### Alert Templates
+**Caution Zone Alert:**
+```
+⚠️ FILE SIZE WARNING
+File: [filename] ([size]KB)
+Current context: [usage]% used
+Recommendation: Proceed with caution
+Continue reading? (y/n)
+```
+
+**Permission Zone Alert:**
+```
+🛑 LARGE FILE DETECTED
+File: [filename] ([size]KB)
+Current context: [usage]% used
+This file may impact context window significantly.
+Options:
+1. Read full file (may cause context issues)
+2. Skip this file
+3. Read partial content only
+Your choice:
+```
+
+**Danger Zone Alert:**
+```
+🚨 VERY LARGE FILE WARNING
+File: [filename] ([size]MB)
+Current context: [usage]% used
+This file is very large and will likely cause context overflow.
+Strongly recommend skipping or reading in parts.
+Proceed anyway? (y/n)
+```
+
+## Mode-Specific Behaviors
+
+### PLAN MODE - Information Gathering
+In PLAN MODE, the following operations are permitted without user approval:
+- **File size checking**: All PowerShell commands for checking file sizes
+- **File reading**: read_file tool for any existing files (still respect size warnings for context management)
+- **Directory operations**: list_files, search_files for exploration
+- **Non-destructive commands**: Any command that only reads or inspects existing content
+- **Code exploration**: list_code_definition_names for understanding project structure
+
+**Rationale**: PLAN MODE is for information gathering to create effective plans. Read-only operations are essential for understanding the project state and cannot cause harm to the system or files.
+
+### ACT MODE - Implementation
+In ACT MODE, maintain all existing file size protocols and approval requirements for:
+- Large file reading (>200KB requires permission as per existing protocols)
+- Any file modifications or creation
+- Command execution that could change system state
+- Installation or removal of packages
+- Any potentially destructive operations
+
+**Key Difference**: PLAN MODE prioritizes information access for planning, while ACT MODE maintains safety protocols during implementation.
+
+## Memory Bank Structure
+
+### Core Files (Required)
+All memory bank files are stored in `memory-bank/` directory:
+
+1. **projectbrief.md** - Foundation document
+2. **productContext.md** - Product goals and user experience
+3. **activeContext.md** - Current work focus and recent changes
+4. **systemPatterns.md** - Architecture and design patterns
+5. **techContext.md** - Technology stack and constraints
+6. **progress.md** - Current status and next steps
+
+### Memory Bank Update Triggers
+- After implementing significant changes
+- When discovering new project patterns
+- User requests with "update memory bank"
+- When context needs clarification
+- Before starting complex tasks
+
+## MCFax Project Intelligence
+
+### Application Overview
+- **Type**: Desktop fax application with GUI
+- **Framework**: Python with tkinter GUI
+- **Core Features**: PDF processing, fax transmission, contact management
+- **Architecture**: Modular design with separate GUI, core, database, and processing layers
+
+### Key Directories & Patterns
+```
+src/
+├── core/          # Settings, folder watching
+├── database/      # SQLite integration, models
+├── fax/          # FaxFinder API, XML generation
+├── gui/          # tkinter windows and components
+└── pdf/          # PDF processing, editing, viewing
+```
+
+### Development Patterns
+- **GUI Components**: tkinter-based windows with consistent styling
+- **Database**: SQLite with proper schema management
+- **PDF Processing**: Multiple libraries for viewing, editing, merging
+- **API Integration**: FaxFinder service for fax transmission
+- **File Monitoring**: Automated folder watching for new documents
+
+### Common File Types & Sizes
+- **Python source files**: Usually < 50KB (safe to read)
+- **Log files**: Can grow large (check size first)
+- **PDF files**: Often > 1MB (avoid reading as text)
+- **XML files**: Usually small but can be large with base64 data
+- **Database files**: Large binary (don't read as text)
+
+### PowerShell Integration
+- Use semicolons (;) for command chaining, not &&
+- Proper Windows path handling with backslashes
+- File operations use PowerShell cmdlets when possible
+
+### Code Quality Patterns
+- **Error Handling**: Comprehensive try-catch blocks
+- **Logging**: Structured logging to files in logs/ directory
+- **Configuration**: Settings managed through dedicated classes
+- **Testing**: Extensive test coverage in OLD/tests/
+
+## Python Development Standards
+
+### PEP 8 Compliance
+- **Always follow PEP 8 style guidelines for code formatting**
+- **Line length**: Maximum 79 characters for code, 72 for comments
+- **Indentation**: 4 spaces per indentation level (no tabs)
+- **Naming conventions**: snake_case for functions/variables, PascalCase for classes
+- **Import organization**: Standard library, third-party, local imports (separated by blank lines)
+
+### Virtual Environment Management
+- **Always activate and use the project's virtual environment when running Python commands**
+- **Dependency isolation**: Keep project dependencies separate from system Python
+- **Requirements management**: Maintain accurate requirements.txt file
+- **Environment consistency**: Ensure all team members use same environment setup
+
+### Documentation Standards
+- **Always include docstrings for functions and classes to document their purpose and usage**
+- **Function docstrings**: Include parameters, return values, and examples
+- **Class docstrings**: Describe purpose, attributes, and usage patterns
+- **Module docstrings**: Explain module purpose and main components
+- **Type hints**: Use type annotations for better code clarity and IDE support
+
+### UI/UX Patterns
+- **Window Management**: Consistent window sizing and positioning
+- **Progress Feedback**: Progress bars and status updates
+- **User Confirmation**: Clear dialogs for destructive actions
+- **Accessibility**: Keyboard shortcuts and clear labeling
+
+## Workflow Intelligence
+
+### File Reading Strategy
+1. **Check file size for .log and .xml files only**
+2. **Prioritize smaller, more relevant files**
+3. **Use search_files for large codebases instead of reading everything**
+4. **Read configuration and key files first for context**
+5. **Skip binary files and large logs unless specifically needed**
+
+### Context Window Management
+- **Monitor usage regularly**
+- **Prioritize recent and relevant files**
+- **Use targeted searches over full file reads**
+- **Break large tasks into smaller chunks**
+- **Clear context when switching major topics**
+
+### Development Workflow
+1. **Start with memory bank review**
+2. **Check current file structure**
+3. **Identify key files for the task**
+4. **Check sizes for .log and .xml files before reading**
+5. **Read incrementally, most important first**
+6. **Update memory bank after significant changes**
+
+## Project Evolution Notes
+
+### Current State (January 2025)
+- Mature fax application with full GUI
+- Extensive test coverage in OLD/tests/
+- Active development with recent improvements
+- Stable core functionality with ongoing enhancements
+
+### Key Learnings
+- **File Size Matters**: Large files can overwhelm context
+- **Incremental Reading**: Better to read targeted sections
+- **Test-Driven**: Extensive testing helps understand functionality
+- **Modular Design**: Clean separation of concerns
+
+### Future Considerations
+- **Performance Optimization**: Monitor for large file handling
+- **Context Efficiency**: Implement smarter file reading strategies
+- **User Experience**: Maintain responsive UI during operations
+- **Error Recovery**: Robust handling of edge cases
+
+---
+
+**Remember**: This file grows smarter as we work together. Update it when discovering new patterns, preferences, or project insights that improve effectiveness.

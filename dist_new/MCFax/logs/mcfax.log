@@ -1,0 +1,21 @@
+2025-07-08 07:20:35,065 - __main__ - INFO - Starting MCFax Application
+2025-07-08 07:20:35,169 - core.settings_portable - INFO - No settings file found, using defaults
+2025-07-08 07:20:35,169 - core.settings_portable - INFO - Creating settings file with default values
+2025-07-08 07:20:35,171 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\dist_new\MCFax\settings.json
+2025-07-08 07:20:35,280 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-08 07:20:35,548 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-08 07:20:35,548 - gui.main_window - INFO - Database connected successfully
+2025-07-08 07:20:35,552 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\dist_new\MCFax\settings.json
+2025-07-08 07:20:35,582 - core.folder_watcher - INFO - Folder set for monitoring: C:\MCFaxApp\dist_new\MCFax\temp (recursive: False)
+2025-07-08 07:20:35,582 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-08 07:20:35,584 - core.folder_watcher - INFO - Started monitoring folder: C:\MCFaxApp\dist_new\MCFax\temp
+2025-07-08 07:20:35,584 - gui.main_window - INFO - Started folder monitoring for: C:\MCFaxApp\dist_new\MCFax\temp
+2025-07-08 07:20:35,585 - pdf.pdf_browser - INFO - Found 0 PDF files in C:\MCFaxApp\dist_new\MCFax\temp
+2025-07-08 07:20:35,585 - gui.main_window - INFO - Temp folder set to: C:\MCFaxApp\dist_new\MCFax\temp
+2025-07-08 07:20:35,807 - __main__ - INFO - MCFax Application started successfully
+2025-07-08 07:20:39,176 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\dist_new\MCFax\settings.json
+2025-07-08 07:20:39,177 - gui.main_window - INFO - Window settings saved
+2025-07-08 07:20:39,179 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-08 07:20:39,179 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-08 07:20:39,186 - database.connection - INFO - Database connection closed
+2025-07-08 07:20:39,186 - gui.main_window - INFO - MCFax Application closed

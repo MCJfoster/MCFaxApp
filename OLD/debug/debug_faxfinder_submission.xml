@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schedule_fax>
+  <JobID>cd8b1a0b-cb80-4081-a634-422210f61dff</JobID>
+  <SubmissionTime>2025-07-07T17:26:41.856805</SubmissionTime>
+  <Sender>
+    <Name>Test Sender</Name>
+    <Email>test@example.com</Email>
+  </Sender>
+  <Recipient>
+    <Name>Test Recipient</Name>
+    <FaxNumber>555-123-4567</FaxNumber>
+    <Organization>Test Organization</Organization>
+    <Phone>555-987-6543</Phone>
+    <Email>test@recipient.com</Email>
+  </Recipient>
+  <Settings>
+    <Priority>Medium</Priority>
+    <MaxAttempts>3</MaxAttempts>
+    <RetryInterval>5</RetryInterval>
+  </Settings>
+  <CoverPage>
+    <To>Test Recipient</To>
+    <From>Test Sender</From>
+    <Company>Test Company</Company>
+    <Re>Test Subject</Re>
+    <Comments>Test comments</Comments>
+  </CoverPage>
+  <Document>
+    <FilePath>C:\MCFaxApp\test_fax_document.pdf</FilePath>
+    <FileName>test_fax_document.pdf</FileName>
+    <FileSize>467</FileSize>
+    <content encoding="base64">JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCgoyIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovS2lkcyBbMyAwIFJdCi9Db3VudCAxCj4+CmVuZG9iagoKMyAwIG9iago8PAovVHlwZSAvUGFnZQovUGFyZW50IDIgMCBSCi9NZWRpYUJveCBbMCAwIDYxMiA3OTJdCi9Db250ZW50cyA0IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKL0xlbmd0aCA0NAo+PgpzdHJlYW0KQlQKL0YxIDEyIFRmCjEwMCA3MDAgVGQKKFRlc3QgRmF4IERvY3VtZW50KSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCgp4cmVmCjAgNQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMDkgMDAwMDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyMDYgMDAwMDAgbiAKdHJhaWxlcgo8PAovU2l6ZSA1Ci9Sb290IDEgMCBSCj4+CnN0YXJ0eHJlZgozMDAKJSVFT0Y=</content>
+  </Document>
+  <Status>
+    <State>Pending</State>
+    <CreatedTime>2025-07-07T17:26:41.857352</CreatedTime>
+  </Status>
+</schedule_fax>

@@ -1,0 +1,17 @@
+2025-06-30 11:12:35,300 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-06-30 11:12:35,466 - gui.fax_job_window - ERROR - Error analyzing test_document1.pdf: [WinError 2] The system cannot find the file specified: 'test_document1.pdf'
+2025-06-30 11:12:35,467 - gui.fax_job_window - ERROR - Error analyzing test_document2.pdf: [WinError 2] The system cannot find the file specified: 'test_document2.pdf'
+2025-06-30 11:12:35,506 - core.settings - INFO - No settings file found, using defaults
+2025-06-30 11:12:35,513 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-06-30 11:12:35,659 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-06-30 11:12:35,773 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-06-30 11:12:37,331 - gui.integrated_pdf_viewer - ERROR - Error loading PDF: no such file: 'test_document1.pdf'
+2025-06-30 11:12:37,349 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: test_document1.pdf
+2025-06-30 11:12:39,463 - gui.integrated_pdf_viewer - ERROR - Error loading PDF: no such file: 'test_document2.pdf'
+2025-06-30 11:12:39,465 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: test_document2.pdf
+2025-06-30 11:12:42,764 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-06-30 11:12:42,796 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-06-30 11:12:46,458 - gui.integrated_pdf_viewer - ERROR - Error loading PDF: no such file: 'test_document1.pdf'
+2025-06-30 11:12:46,460 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: test_document1.pdf
+2025-06-30 11:12:47,328 - gui.integrated_pdf_viewer - ERROR - Error loading PDF: no such file: 'test_document2.pdf'
+2025-06-30 11:12:47,330 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: test_document2.pdf

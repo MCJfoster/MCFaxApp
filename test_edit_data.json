@@ -1,0 +1,82 @@
+{
+  "pages": [
+    {
+      "page_number": 0,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "redaction",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              350,
+              700
+            ],
+            [
+              350,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 15,
+          "color": "#000000"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 650,
+          "text": "TEST REDACTION ANNOTATION",
+          "color": "#FF0000",
+          "size": 12
+        }
+      ]
+    },
+    {
+      "page_number": 1,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "highlight",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              380,
+              700
+            ],
+            [
+              380,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 10,
+          "color": "#FFFF00"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 600,
+          "text": "TEST HIGHLIGHT ANNOTATION",
+          "color": "#0000FF",
+          "size": 12
+        }
+      ]
+    }
+  ]
+}

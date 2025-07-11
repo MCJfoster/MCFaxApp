@@ -1,0 +1,120 @@
+The bug in the fax job creation window is that any edits made to the PDF files in the "PDF Selection & Editing" tab are not reflected in the final preview or submitted fax document. This occurs because:
+
+The IntegratedPDFViewer class (in integrated_pdf_viewer.py) implements visual editing features (redaction, highlighting, text addition, page exclusion) but does not persist these changes to the actual PDF file. The save_pdf method is a stub with a TODO comment and always returns True without modifying the file.
+When generating the final preview in FaxJobWindow.generate_final_preview (in fax_job_window.py), it combines the original self.selected_pdfs paths without checking for or incorporating edits. Since edits aren't saved to disk, the preview uses unedited files.
+Page exclusions are tracked in memory (self.excluded_pages) but not applied during PDF combination—the full original PDF is always used.
+The "Save PDF" button in the PDF tab calls save_pdf_edits, which invokes the unimplemented save_pdf, leading users to believe changes are saved when they're not.
+This results in previews and submissions ignoring all edits, causing data inconsistencies (e.g., sensitive info not redacted) and user frustration.
+
+Steps to Fix the Bug
+Implement persistent editing by saving changes to temporary files before preview/submission. Use PyMuPDF (already imported as fitz) to apply edits to the PDF. Here's a step-by-step guide with code changes:
+
+1. Update IntegratedPDFViewer in integrated_pdf_viewer.py
+Implement save_pdf to apply drawings, annotations, and exclusions to a new PDF file.
+Add a save_to_file method that generates an edited PDF (excluding pages and applying overlays).
+Track the edited file path for each viewer instance.
+Replace the stub save_pdf with this:
+
+python
+
+Collapse
+
+Wrap
+
+Run
+
+Copy
+def save_pdf(self, output_path: Optional[str] = None) -> bool:
+    """Save the PDF with all edits applied to a new file."""
+    if not self.pdf_document:
+        return False
+
+    try:
+        # Create a new document for the edited version
+        edited_doc = fitz.open()
+
+        for page_num in range(len(self.pdf_document)):
+            if page_num in self.excluded_pages:
+                continue  # Skip excluded pages
+
+            # Load original page
+            original_page = self.pdf_document[page_num]
+
+            # Insert into edited doc
+            edited_doc.insert_pdf(self.pdf_document, from_page=page_num, to_page=page_num)
+
+            # Get the inserted page
+            edited_page = edited_doc[-1]
+
+            # Apply drawings and annotations from canvas
+            canvas = self.page_canvases[page_num]
+            for stroke in canvas.brush_strokes:
+                # Draw lines (for redaction/highlight)
+                shape = edited_page.new_shape()
+                points = [fitz.Point(x / self.zoom_level, y / self.zoom_level) for x, y in stroke['points']]  # Scale back to original
+                color = QColor(stroke['color'])
+                r, g, b = color.redF(), color.greenF(), color.blueF()
+                width = stroke['brush_size'] / self.zoom_level  # Scale back
+                
+                if stroke['type'] == 'highlight':
+                    shape.draw_polyline(points)
+                    shape.finish(width=width, color=(r, g, b), fill=(r, g, b, 0.5), close=False)
+                else:  # redaction
+                    shape.draw_polyline(points)
+                    shape.finish(width=width, color=(r, g, b), fill=(r, g, b), close=False)
+                shape.commit()
+
+            for ann in canvas.annotations:
+                if ann['type'] == 'text':
+                    # Add text annotation
+                    rect = fitz.Rect(ann['x'] / self.zoom_level, ann['y'] / self.zoom_level, 200, 50)  # Adjust size as needed
+                    color = QColor(ann['color'])
+                    r, g, b = color.redF(), color.greenF(), color.blueF()
+                    edited_page.insert_textbox(
+                        rect, ann['text'], fontsize=ann.get('size', 12) / self.zoom_level,
+                        fontname=ann.get('font', 'helv'), color=(r, g, b)
+                    )
+
+        # Save to output path or temp file
+        if not output_path:
+            output_path = f"{Path(self.pdf_path).stem}_edited.pdf"
+        edited_doc.save(output_path)
+        edited_doc.close()
+
+        self.logger.info(f"PDF saved with edits to: {output_path}")
+        return True
+
+    except Exception as e:
+        self.logger.error(f"Error saving PDF: {e}")
+        return False
+Update toggle_page_exclusion to mark pages for skipping during save.
+Call self.save_pdf() in response to user actions (e.g., before switching tabs or generating preview).
+2. Update FaxJobWindow in fax_job_window.py
+Track edited PDF paths: Add self.edited_pdfs = {} (dict of original_path: edited_path).
+In save_pdf_edits: After self.pdf_viewer.save_pdf(temp_path), store self.edited_pdfs[self.current_pdf_path] = temp_path.
+Modify generate_final_preview and submit_fax_job to use edited PDFs if available:
+python
+
+Collapse
+
+Wrap
+
+Run
+
+Copy
+# In generate_final_preview and submit_fax_job:
+pdf_files_to_use = []
+for original_path in self.selected_pdfs:
+    edited_path = self.edited_pdfs.get(original_path, original_path)
+    pdf_files_to_use.append(edited_path)
+
+# Then combine pdf_files_to_use instead of self.selected_pdfs
+Before generating preview, prompt or auto-save edits if unsaved.
+In toggle_page_exclusion, ensure exclusions are applied during PDF combination by skipping excluded pages in pdf_processor.combine_pdfs.
+3. Update PDFProcessor in pdf/pdf_processor.py (if needed)
+Enhance combine_pdfs to accept a list of paths and optional excluded pages per PDF.
+Use PyMuPDF to skip excluded pages during merge.
+4. UI/UX Improvements
+Add a confirmation dialog before preview if unsaved edits exist: "Unsaved edits detected. Save now?"
+Disable "Next" button until edits are saved.
+Show a warning icon next to edited but unsaved PDFs in the list

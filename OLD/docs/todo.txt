@@ -1,0 +1,255 @@
+# Updated Application Development Plan for MultiTech FaxFinder FF240.R1 Fax Management Client with Enhanced PDF Editing and Cover Page Features
+
+## Objective
+Develop a Python-based fax application interfacing with the MultiTech FaxFinder FF240.R1 (Firmware 3.5.2) to send and receive faxes. The application will:
+
+- Monitor a user-selected folder for PDF files to initiate fax jobs.
+- Allow users to browse, combine multiple PDFs, and perform minor PDF edits (exclude pages, black out lines or words) for a single FaxJob, respecting a 36MB request size limit.
+- Generate a user-defined cover page with fax-specific details (e.g., ATTN, SUBJECT, COMMENTS).
+- Generate and submit XML files to the FaxFinder’s Web Services API.
+- Use an MS SQL Server database (2019 or 2022) to log fax activities and manage contacts.
+- Link faxes to contacts for historical tracking, supporting CSV import/export.
+- Handle inbound faxes with automatic contact linking and configurable notifications.
+
+## System Architecture
+
+### 1. Core Components
+
+#### 1.1. Folder Monitoring Module
+- **Purpose**: Detects new PDF files in a user-specified folder to trigger fax job creation.
+- **Functionality**:
+  - GUI for selecting a folder, with an option to monitor subfolders recursively.
+  - File system watcher to detect new or modified PDFs, optionally filtering by naming conventions (e.g., “fax_*.pdf”).
+  - Notify the FaxJob creation module when a PDF is detected.
+- **Technology**: Python’s `watchdog` library for file system events.
+- **Notes**: Default to top-level folder monitoring, with recursive monitoring as a user-configurable option.
+
+#### 1.2. PDF Browsing, Editing, and FaxJob Creation Module
+- **Purpose**: Enable users to select, combine, and edit PDFs, and create a FaxJob with a custom cover page.
+- **Functionality**:
+  - GUI to browse PDFs in the monitored folder or other directories.
+  - Combine multiple PDFs into a single PDF, validated to stay within 36MB.
+  - **PDF Editing**:
+    - Exclude specific pages from selected PDFs (e.g., remove page 3 from a document).
+    - Black out lines or specific words on pages (e.g., redact sensitive text) using text detection and overlay techniques.
+    - Preview edited PDFs before finalizing the FaxJob.
+  - **Cover Page Creation**:
+    - Generate a cover page with user-provided fax-specific details: ATTN, CC, COMMENTS, COMPANY, DATE, FAX, FROM, MSG, ORG, PAGES, PHONE, RE, SUBJECT, TO.
+    - Allow users to input cover page details via a GUI form, with optional templates.
+    - Prepend cover page to the combined PDF.
+  - Collect fax details: recipient contact, priority (1st, High, Medium/High, Medium, Medium/Low, Low), retry settings (Retry Interval, Max Attempts).
+  - Generate XML compliant with FaxFinder FF240.R1’s Web Services API.
+  - Store combined PDFs (including cover page) temporarily, with an option to save in a designated folder.
+- **Technology**:
+  - `PyPDF2` for PDF merging and page exclusion.
+  - `pdfplumber` and `PyMuPDF` (fitz) for text detection and redaction (blacking out text).
+  - `reportlab` for generating cover page PDFs.
+  - `tkinter` for GUI.
+- **Notes**: Validate PDF size before submission; ensure redactions are permanent; temporary files are sufficient unless user specifies saving.
+
+#### 1.3. FaxFinder Integration Module
+- **Purpose**: Communicate with FaxFinder FF240.R1 to send and receive faxes.
+- **Functionality**:
+  - Send faxes by posting XML to `/ffws/v1/ofax` using HTTP POST with Basic Authentication.
+  - Encode PDFs (including cover page) in base64 for inline XML inclusion.
+  - Retrieve fax status by polling `/ffws/v1/ofax/{fax_entry_url}`.
+  - Handle inbound faxes by polling `/ffws/v1/ifax`, saving as PDFs, and linking to contacts by fax number.
+  - Log API responses (e.g., fax_entry_url, status) in the database.
+  - Support configurable notifications for inbound faxes (GUI alerts, email).
+- **Technology**: `requests` for HTTP, `base64` for encoding.
+- **Notes**: Polling is required due to lack of webhook support; retry logic uses FaxFinder’s `max_tries` and `try_interval`.
+
+#### 1.4. Database Module
+- **Purpose**: Store fax logs, contact information, and fax-contact associations in MS SQL Server.
+- **Functionality**:
+  - Store fax job details (sender, recipient, status, timestamps, PDF path, XML, cover page details).
+  - Manage contacts (Name, Fax, Phone, Organization, Notes, Email).
+  - Link faxes to contacts for historical tracking.
+  - Support queries for fax history and contact management, with configurable retention policies (e.g., delete after 90 days).
+  - Create schema during setup, with support for pre-existing databases.
+- **Technology**: MS SQL Server (2019 or 2022), `pyodbc` with ODBC Driver 17 for connectivity.
+- **Notes**: Support local or remote database hosting; index key columns for performance.
+
+#### 1.5. Contact Management Module
+- **Purpose**: Manage contacts and associate them with fax jobs.
+- **Functionality**:
+  - GUI to add, edit, delete, and view contacts, with fields: Name, Fax, Phone, Organization, Notes, Email.
+  - Support CSV import/export mirroring FaxFinder’s format (Name, Fax, Phone, Organization, Notes).
+  - Allow contact selection during FaxJob creation.
+  - Store contact-fax associations in the database.
+- **Technology**: Integrated with GUI and database modules.
+- **Notes**: Email stored locally; automatic contact linking for inbound faxes.
+
+### 2. Database Schema (MS SQL Server)
+- **FaxJobs**:
+  - `fax_id` (BIGINT, PK, Auto-Increment): Unique identifier.
+  - `fax_entry_url` (NVARCHAR(255)): FaxFinder tracking URL.
+  - `sender_name` (NVARCHAR(100)): Sender’s name.
+  - `sender_email` (NVARCHAR(100)): Sender’s email.
+  - `recipient_id` (BIGINT, FK to Contacts): Recipient contact.
+  - `status` (NVARCHAR(50)): Fax status (e.g., Preprocessing, Sent, Failed).
+  - `created_at` (DATETIME): Job creation timestamp.
+  - `sent_at` (DATETIME, NULL): Fax transmission timestamp.
+  - `pdf_path` (NVARCHAR(255)): Path to combined PDF.
+  - `xml_content` (NVARCHAR(MAX)): XML sent to FaxFinder.
+  - `cover_page_details` (NVARCHAR(MAX)): JSON or serialized cover page fields (e.g., ATTN, SUBJECT).
+- **Contacts**:
+  - `contact_id` (BIGINT, PK, Auto-Increment): Unique identifier.
+  - `name` (NVARCHAR(100)): Contact’s name.
+  - `fax_number` (NVARCHAR(20)): Fax number (e.g., +1234567890).
+  - `organization` (NVARCHAR(100), NULL): Organization name.
+  - `phone_number` (NVARCHAR(20), NULL): Phone number.
+  - `email` (NVARCHAR(100), NULL): Email address.
+  - `notes` (NVARCHAR(MAX), NULL): Additional notes.
+- **FaxContactHistory**:
+  - `history_id` (BIGINT, PK, Auto-Increment): Unique identifier.
+  - `fax_id` (BIGINT, FK to FaxJobs): Associated fax.
+  - `contact_id` (BIGINT, FK to Contacts): Associated contact.
+  - `action` (NVARCHAR(50)): Action type (e.g., Sent, Received).
+  - `timestamp` (DATETIME): Action timestamp.
+- **Indexes**: `fax_id`, `contact_id`, `timestamp` for query performance.
+
+### 3. Workflow
+- **Initialization**:
+  - User selects folder to monitor and configures subfolder monitoring.
+  - Application connects to MS SQL Server, creates schema if needed, and loads contacts.
+- **Folder Monitoring**:
+  - Detects new PDFs and alerts user via GUI.
+- **FaxJob Creation**:
+  - User browses and selects multiple PDFs, combines them, and performs edits (exclude pages, black out text).
+  - User inputs cover page details (ATTN, SUBJECT, etc.) via a GUI form.
+  - User selects recipient from contacts or adds new contact.
+  - User specifies fax details (priority, retry settings).
+  - Application generates cover page, merges with PDFs (ensuring size <36MB), and creates XML.
+- **Fax Submission**:
+  - Encodes PDF (with cover page) in base64, includes in XML, and posts to `/ffws/v1/ofax`.
+  - Logs response (fax_entry_url) and cover page details in FaxJobs.
+- **Status Monitoring**:
+  - Polls FaxFinder API to update fax status in FaxJobs.
+  - Links updates to recipient in FaxContactHistory.
+- **Inbound Faxes**:
+  - Polls `/ffws/v1/ifax`, saves PDFs, and links to contacts by fax number.
+  - Displays in GUI and sends optional email notifications.
+- **Contact Management**:
+  - GUI for managing contacts, with CSV import/export.
+  - View fax history per contact.
+
+### 4. User Interface
+- **Main Window**:
+  - Folder selection with subfolder monitoring toggle.
+  - PDF list with browse, combine, and edit options (exclude pages, black out text, preview).
+  - Cover page form for fax-specific details (ATTN, CC, COMMENTS, etc.).
+  - Contact selection dropdown or add/edit button.
+  - Fax details form (priority, retry settings).
+  - Send Fax button.
+- **Contact Management Window**:
+  - Table view of contacts with add/edit/delete and CSV import/export.
+  - Search/filter functionality.
+- **Fax History Window**:
+  - Table view of fax jobs (status, recipient, timestamp, cover page details).
+  - Filter by contact or date.
+- **Technology**: `tkinter` with clean layout, neutral colors, and basic accessibility (keyboard navigation).
+- **Notes**: Support customizable themes; add localization if required.
+
+### 5. Security Considerations
+- Store FaxFinder credentials in Windows Credential Manager or environment variables.
+- Use HTTPS for FaxFinder API communication.
+- Validate fax numbers, PDFs (<36MB), and user inputs to prevent errors or malicious content.
+- Ensure redactions (blacked-out text) are permanent and not reversible.
+- Use parameterized SQL queries to prevent injection.
+- Encrypt sensitive fax data and cover page details in the database for HIPAA compliance if needed.
+- Implement audit logging for compliance requirements.
+
+### 6. Error Handling
+- Handle FaxFinder API errors (e.g., 401 Unauthorized, 400 Bad Request) with user-friendly messages.
+- Log errors in MS SQL Server and a file for debugging.
+- Implement retry logic using FaxFinder’s `max_tries` and `try_interval`, with user-configurable settings.
+- Validate PDF edits (e.g., ensure at least one page remains after exclusion).
+
+### 7. Development Phases
+- **Phase 1: Database and Contact Management**:
+  - Set up MS SQL Server database and schema, including cover page storage.
+  - Implement contact management with GUI and CSV support.
+- **Phase 2: Folder Monitoring and PDF Processing**:
+  - Implement folder monitoring with `watchdog`, including subfolder option.
+  - Develop PDF browsing, merging, editing (page exclusion, redaction), and cover page generation.
+- **Phase 3: FaxFinder Integration**:
+  - Implement XML generation and API communication.
+  - Develop polling for status and inbound faxes with contact linking.
+- **Phase 4: Full GUI and Workflow Integration**:
+  - Build main GUI integrating all modules, including PDF editing and cover page forms.
+  - Test end-to-end fax workflow.
+- **Phase 5: Testing and Refinement**:
+  - Test with sample PDFs, test fax numbers, and simulated API responses.
+  - Conduct integration testing with FF240.R1.
+  - Optimize performance and handle edge cases (e.g., large PDFs, invalid edits, API errors).
+
+### 8. Dependencies
+- Python 3.8+.
+- Libraries: `watchdog`, `PyPDF2`, `pdfplumber`, `PyMuPDF` (fitz), `reportlab`, `requests`, `tkinter`, `pyodbc`, `base64`.
+- MS SQL Server 2019 or 2022 with ODBC Driver 17.
+- FaxFinder FF240.R1 with configured IP address and credentials.
+
+### 9. MS SQL Server Integration
+- **Connection**: Use `pyodbc` with ODBC Driver 17 for robust connectivity.
+- **Schema Management**: Create tables with appropriate data types, constraints, and indexes.
+- **Performance**: Index `fax_id`, `contact_id`, `timestamp` for efficient queries.
+- **Security**: Support SQL Server or Windows authentication based on environment.
+
+### 10. Testing Strategy
+- **Unit Testing**: Test each module (folder monitoring, PDF editing, cover page generation, API calls, database operations).
+- **Integration Testing**: Test end-to-end workflow with FF240.R1.
+- **Edge Cases**: Test large PDFs (near 36MB), invalid fax numbers, API errors, extreme edits (e.g., excluding all pages), and complex cover pages.
+- **Simulation**: Use mock API responses for initial development.
+- **Sample Data**: Generate sample PDFs with text for redaction testing and use test fax numbers or services.
+
+## IMPLEMENTATION STATUS
+
+### Phase 4: User Interface - ✅ COMPLETED (December 26, 2025)
+
+**4.1 Fax History Window - ✅ COMPLETED**
+- ✅ Comprehensive fax history viewer with filtering capabilities
+- ✅ Display all past fax jobs with status, timestamps, recipients
+- ✅ Date range and status filtering functionality
+- ✅ Resend capability for previous fax jobs
+- ✅ Export functionality to CSV format
+- ✅ Integration with main application workflow
+
+**4.2 Enhanced PDF Viewer with Editing - ✅ COMPLETED**
+- ✅ MS Paint-style redaction tools with brush controls
+- ✅ Text and shape annotation capabilities
+- ✅ Page exclusion functionality for final fax
+- ✅ Save/load editing sessions with JSON format
+- ✅ Real-time preview of edited PDFs
+- ✅ Undo/redo functionality for all edits
+- ✅ Color selection and brush size controls
+
+**4.3 Folder Monitoring Integration - ✅ COMPLETED**
+- ✅ Automatic folder monitoring integrated with main UI
+- ✅ Real-time file addition/removal notifications
+- ✅ Auto-refresh PDF list when files change
+- ✅ Automatic monitoring startup on app launch
+- ✅ Status indicators for monitoring state
+
+**Additional UI Enhancements Implemented:**
+- ✅ Enhanced main window with integrated PDF editor access
+- ✅ Improved status reporting and user feedback
+- ✅ Comprehensive error handling and user notifications
+- ✅ Professional styling and layout improvements
+- ✅ Keyboard shortcuts and accessibility features
+
+**Files Created/Modified:**
+- `src/gui/fax_history_window.py` - New comprehensive fax history interface
+- `src/pdf/pdf_editor.py` - New advanced PDF editing capabilities
+- `src/pdf/pdf_viewer.py` - Enhanced PDF viewer with editing integration
+- `src/gui/main_window.py` - Updated with folder monitoring and new features
+- `requirements.txt` - Added pdf2image and Pillow dependencies
+- `test_phase4_ui.py` - Comprehensive test suite for all UI components
+
+**Testing:**
+- ✅ All UI components tested and verified
+- ✅ Integration testing completed
+- ✅ Error handling validated
+- ✅ User workflow testing successful
+
+Phase 4 implementation provides a complete, professional user interface with advanced PDF editing capabilities, comprehensive fax history management, and seamless folder monitoring integration. The application now offers a full-featured fax management solution with modern UI/UX standards.

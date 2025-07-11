@@ -1,0 +1,810 @@
+2025-07-07 17:34:26,698 - __main__ - INFO - Starting MCFax Application
+2025-07-07 17:34:26,788 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 17:34:26,864 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 17:34:27,061 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 17:34:27,062 - gui.main_window - INFO - Database connected successfully
+2025-07-07 17:34:27,066 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 17:34:27,067 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 17:34:27,068 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 17:34:27,070 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 17:34:27,071 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 17:34:27,079 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 17:34:27,081 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 17:34:27,081 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 17:34:27,284 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 17:34:27,575 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 17:34:27,576 - gui.main_window - INFO - PDF file detected: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 17:34:28,079 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 17:34:28,080 - gui.main_window - INFO - PDF file detected: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 17:34:32,087 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 17:34:39,921 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 17:34:40,419 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 17:34:40,470 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 17:34:49,732 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 17:34:49,734 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 17:34:57,593 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 17:34:57,626 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 17:34:57,676 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 17:35:02,372 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 17:35:02,408 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 17:35:04,505 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 17:35:04,815 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 17:35:04,817 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 17:35:04,818 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 17:35:06,595 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_173506.pdf
+2025-07-07 17:35:06,621 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 17:35:06,636 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_173506.pdf
+2025-07-07 17:35:06,798 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 17:35:06,801 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 17:35:06,801 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_173506.pdf
+2025-07-07 17:35:06,802 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 17:35:06,802 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 17:35:06,805 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 17:35:06,805 - gui.fax_job_window - INFO - DEBUG: XML generated successfully, length: 494155 characters
+2025-07-07 17:35:06,805 - gui.fax_job_window - INFO - DEBUG: XML starts with: <?xml version="1.0" encoding="utf-8"?>
+<schedule_fax>
+  <JobID>16</JobID>
+  <SubmissionTime>2025-07-...
+2025-07-07 17:35:06,832 - gui.fax_job_window - INFO - DEBUG: XML saved to debug_main_app_xml.xml
+2025-07-07 17:35:06,835 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 17:35:06,838 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 17:35:06,838 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_173506.pdf
+2025-07-07 17:35:06,839 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 17:35:06,839 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 17:35:06,840 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 17:35:06,841 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 17:35:06,841 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 17:35:06,842 - fax.faxfinder_api - INFO -   XML length: 494155 characters
+2025-07-07 17:35:06,842 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 17:35:06,843 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...NCM0VCNEM0MjM+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 17:35:07,309 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>scheduling failed: internal error</message>
+
+</response>
+
+2025-07-07 17:36:22,610 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 17:36:22,611 - gui.main_window - INFO - Window settings saved
+2025-07-07 17:36:22,614 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 17:36:22,615 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 17:36:22,619 - database.connection - INFO - Database connection closed
+2025-07-07 17:36:22,619 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 18:24:59,704 - __main__ - INFO - Starting MCFax Application
+2025-07-07 18:24:59,803 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 18:24:59,877 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 18:25:00,017 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 18:25:00,018 - gui.main_window - INFO - Database connected successfully
+2025-07-07 18:25:00,022 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 18:25:00,023 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 18:25:00,023 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 18:25:00,025 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 18:25:00,026 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 18:25:00,034 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 18:25:00,041 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 18:25:00,049 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 18:25:00,272 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 18:25:06,785 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 18:25:07,291 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 18:25:07,347 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 18:25:09,014 - gui.integrated_pdf_viewer - INFO - Loaded PDF: US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf with 24 pages
+2025-07-07 18:25:09,016 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 18:25:12,409 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 18:25:12,426 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 18:25:12,461 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 18:25:15,530 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 18:25:15,559 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 18:25:16,905 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 18:25:18,127 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 25 pages
+2025-07-07 18:25:18,129 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 18:25:18,131 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 18:25:19,563 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_182519.pdf
+2025-07-07 18:25:19,661 - gui.fax_job_window - INFO - Added PDF to final document: US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 18:25:19,699 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_182519.pdf
+2025-07-07 18:25:19,927 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 18:25:19,989 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 18:25:19,990 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_182519.pdf
+2025-07-07 18:25:19,990 - fax.xml_generator - INFO -   Size: 5257160 bytes (5.0 MB)
+2025-07-07 18:25:19,991 - fax.xml_generator - INFO -   Base64 length: 7009548 characters
+2025-07-07 18:25:20,014 - fax.xml_generator - INFO - Generated FaxFinder XML with 7009548 character PDF using FF240.R1 format
+2025-07-07 18:25:20,016 - gui.fax_job_window - INFO - DEBUG: XML generated successfully, length: 7010572 characters
+2025-07-07 18:25:20,016 - gui.fax_job_window - INFO - DEBUG: XML starts with: <?xml version="1.0" encoding="utf-8"?>
+<schedule_fax>
+  <JobID>17</JobID>
+  <SubmissionTime>2025-07-...
+2025-07-07 18:25:20,046 - gui.fax_job_window - INFO - DEBUG: XML saved to debug_main_app_xml.xml
+2025-07-07 18:25:20,059 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 18:25:20,098 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 18:25:20,100 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_182519.pdf
+2025-07-07 18:25:20,101 - fax.xml_generator - INFO -   Size: 5257160 bytes (5.0 MB)
+2025-07-07 18:25:20,104 - fax.xml_generator - INFO -   Base64 length: 7009548 characters
+2025-07-07 18:25:20,124 - fax.xml_generator - INFO - Generated FaxFinder XML with 7009548 character PDF using FF240.R1 format
+2025-07-07 18:25:20,141 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 18:25:20,142 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 18:25:20,142 - fax.faxfinder_api - INFO -   XML length: 7010572 characters
+2025-07-07 18:25:20,149 - fax.faxfinder_api - INFO -   Base64 PDF content: 7009548 characters
+2025-07-07 18:25:20,166 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...Q5MkMxMzhGPl0+PgpzdGFydHhyZWYKNTIzODU5OAolJUVPRgo=
+2025-07-07 18:25:23,978 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>scheduling failed: internal error</message>
+
+</response>
+
+2025-07-07 18:25:30,803 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 18:25:30,803 - gui.main_window - INFO - Window settings saved
+2025-07-07 18:25:30,805 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 18:25:30,806 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 18:25:30,809 - database.connection - INFO - Database connection closed
+2025-07-07 18:25:30,810 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 20:46:25,301 - __main__ - INFO - Starting MCFax Application
+2025-07-07 20:46:25,418 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:46:25,554 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 20:46:25,680 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 20:46:25,681 - gui.main_window - INFO - Database connected successfully
+2025-07-07 20:46:25,684 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:46:25,685 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 20:46:25,685 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 20:46:25,687 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 20:46:25,688 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 20:46:25,696 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 20:46:25,698 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 20:46:25,698 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 20:46:25,921 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 20:46:26,192 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:46:26,193 - gui.main_window - INFO - PDF file detected: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:46:26,696 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 20:46:26,697 - gui.main_window - INFO - PDF file detected: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 20:46:28,838 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 20:46:29,340 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:46:29,412 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:46:30,893 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 20:46:30,895 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:46:35,224 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:46:35,255 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:46:36,068 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 20:46:36,084 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:46:36,118 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:46:39,833 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 20:46:40,127 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 20:46:40,129 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 20:46:40,130 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 20:46:41,318 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_204641.pdf
+2025-07-07 20:46:41,344 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:46:41,348 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_204641.pdf
+2025-07-07 20:46:41,493 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 20:46:41,493 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 20:46:41,522 - gui.fax_job_window - ERROR - Base64 conversion failed: cannot access local variable 'base64' where it is not associated with a value
+2025-07-07 20:47:34,283 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:47:34,285 - gui.main_window - INFO - Window settings saved
+2025-07-07 20:47:34,288 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 20:47:34,288 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 20:47:34,293 - database.connection - INFO - Database connection closed
+2025-07-07 20:47:34,293 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 20:54:50,913 - __main__ - INFO - Starting MCFax Application
+2025-07-07 20:54:51,018 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:54:51,120 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 20:54:51,289 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 20:54:51,290 - gui.main_window - INFO - Database connected successfully
+2025-07-07 20:54:51,294 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:54:51,295 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 20:54:51,295 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 20:54:51,297 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 20:54:51,297 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 20:54:51,306 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 20:54:51,307 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 20:54:51,307 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 20:54:51,556 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 20:54:56,229 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 20:54:56,731 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:54:56,787 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:54:58,050 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 20:54:58,052 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:55:00,806 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 20:55:00,823 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:55:00,856 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:55:03,450 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 20:55:03,479 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 20:55:04,974 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 20:55:05,299 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 20:55:05,301 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 20:55:05,302 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 20:55:06,419 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_205506.pdf
+2025-07-07 20:55:06,443 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 20:55:06,446 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_205506.pdf
+2025-07-07 20:55:06,604 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 20:55:06,605 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 20:55:06,608 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 20:55:06,608 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 20:55:06,608 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 20:55:06,611 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 20:55:06,612 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_205506.pdf
+2025-07-07 20:55:06,612 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 20:55:06,612 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 20:55:06,614 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 20:55:06,614 - gui.fax_job_window - INFO - XML generated successfully, length: 494155 characters
+2025-07-07 20:55:06,705 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 20:55:06,706 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 20:55:06,708 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 20:55:06,708 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_205506.pdf
+2025-07-07 20:55:06,709 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 20:55:06,709 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 20:55:06,711 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 20:55:06,711 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 20:55:06,712 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 20:55:06,712 - fax.faxfinder_api - INFO -   XML length: 494155 characters
+2025-07-07 20:55:06,712 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 20:55:06,713 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...Y3NEFEMEIwOUY+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 20:55:07,186 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>scheduling failed: internal error</message>
+
+</response>
+
+2025-07-07 20:59:47,927 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:59:47,928 - gui.main_window - INFO - Window settings saved
+2025-07-07 20:59:47,932 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 20:59:47,932 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 20:59:47,936 - database.connection - INFO - Database connection closed
+2025-07-07 20:59:47,937 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 20:59:54,231 - __main__ - INFO - Starting MCFax Application
+2025-07-07 20:59:54,320 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:59:54,400 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 20:59:54,546 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 20:59:54,547 - gui.main_window - INFO - Database connected successfully
+2025-07-07 20:59:54,551 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 20:59:54,552 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 20:59:54,552 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 20:59:54,554 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 20:59:54,554 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 20:59:54,563 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 20:59:54,565 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 20:59:54,578 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 20:59:54,753 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 20:59:59,582 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:00:04,588 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:00:14,579 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:00:19,590 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:00:29,586 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:00:32,982 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 21:00:33,481 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:00:33,532 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:00:34,476 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 21:00:34,478 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:00:36,988 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 21:00:37,004 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:00:37,034 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:00:39,993 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:00:40,039 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:00:45,254 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 21:00:45,538 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 21:00:45,540 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 21:00:45,541 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 21:00:47,095 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_210047.pdf
+2025-07-07 21:00:47,123 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:00:47,128 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_210047.pdf
+2025-07-07 21:00:47,234 - fax.xml_generator - INFO - Generated fax XML: C:\MCFaxApp\xml\fax_job_20250707_210047.xml
+2025-07-07 21:00:47,234 - gui.fax_job_window - INFO - Generated XML file for local storage: C:\MCFaxApp\xml\fax_job_20250707_210047.xml
+2025-07-07 21:00:47,235 - gui.fax_job_window - INFO - Generated local XML file: C:\MCFaxApp\xml\fax_job_20250707_210047.xml
+2025-07-07 21:00:47,312 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 21:00:47,313 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 21:00:47,316 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 21:00:47,316 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 21:00:47,316 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 21:00:47,319 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:00:47,319 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_210047.pdf
+2025-07-07 21:00:47,320 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:00:47,320 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:00:47,321 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 21:00:47,322 - gui.fax_job_window - INFO - XML generated successfully, length: 494155 characters
+2025-07-07 21:00:47,357 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 21:00:47,358 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 21:00:47,360 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:00:47,360 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_210047.pdf
+2025-07-07 21:00:47,361 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:00:47,361 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:00:47,363 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 21:00:47,364 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 21:00:47,364 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 21:00:47,364 - fax.faxfinder_api - INFO -   XML length: 494155 characters
+2025-07-07 21:00:47,365 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 21:00:47,365 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...BGODJBOEE4Mzc+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 21:00:47,850 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>scheduling failed: internal error</message>
+
+</response>
+
+2025-07-07 21:01:10,515 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:01:10,516 - gui.main_window - INFO - Window settings saved
+2025-07-07 21:01:10,518 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 21:01:10,518 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 21:01:10,529 - database.connection - INFO - Database connection closed
+2025-07-07 21:01:10,529 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 21:07:08,469 - __main__ - INFO - Starting MCFax Application
+2025-07-07 21:07:08,563 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:07:08,623 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 21:07:08,784 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 21:07:08,785 - gui.main_window - INFO - Database connected successfully
+2025-07-07 21:07:08,789 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:07:08,790 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 21:07:08,791 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 21:07:08,793 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 21:07:08,793 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 21:07:08,805 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:07:08,807 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 21:07:08,807 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 21:07:09,024 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 21:07:11,676 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 21:07:12,183 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:07:12,236 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:07:13,282 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 21:07:13,284 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:07:16,251 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 21:07:16,267 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:07:16,297 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:07:18,217 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:07:18,247 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:07:19,472 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 21:07:19,779 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 21:07:19,780 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 21:07:19,781 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 21:07:20,941 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_210720.pdf
+2025-07-07 21:07:20,967 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:07:20,971 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_210720.pdf
+2025-07-07 21:07:21,043 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:07:21,043 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_210720.pdf
+2025-07-07 21:07:21,044 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:07:21,044 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:07:21,046 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 21:07:21,049 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250707_210721.xml
+2025-07-07 21:07:21,049 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250707_210721.xml
+2025-07-07 21:07:21,131 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 21:07:21,137 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 21:07:21,140 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 21:07:21,146 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 21:07:21,158 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 21:07:21,164 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:07:21,164 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_210720.pdf
+2025-07-07 21:07:21,164 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:07:21,165 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:07:21,167 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 21:07:21,167 - gui.fax_job_window - INFO - XML generated successfully, length: 494155 characters
+2025-07-07 21:07:21,208 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 21:07:21,208 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 21:07:21,212 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:07:21,212 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_210720.pdf
+2025-07-07 21:07:21,212 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:07:21,213 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:07:21,216 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using FF240.R1 format
+2025-07-07 21:07:21,231 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 21:07:21,231 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 21:07:21,231 - fax.faxfinder_api - INFO -   XML length: 494155 characters
+2025-07-07 21:07:21,232 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 21:07:21,232 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...U4OTc5OTQ1MTA+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 21:07:21,730 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>scheduling failed: internal error</message>
+
+</response>
+
+2025-07-07 21:07:27,744 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:07:27,745 - gui.main_window - INFO - Window settings saved
+2025-07-07 21:07:27,746 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 21:07:27,747 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 21:07:27,750 - database.connection - INFO - Database connection closed
+2025-07-07 21:07:27,750 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 21:49:55,435 - __main__ - INFO - Starting MCFax Application
+2025-07-07 21:49:55,548 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:49:55,624 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 21:49:55,779 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 21:49:55,780 - gui.main_window - INFO - Database connected successfully
+2025-07-07 21:49:55,784 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:49:55,784 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 21:49:55,785 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 21:49:55,787 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 21:49:55,787 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 21:49:55,796 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 21:49:55,814 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 21:49:55,817 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 21:49:56,047 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 21:49:56,292 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:49:56,292 - gui.main_window - INFO - PDF file detected: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:49:56,795 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 21:49:56,796 - gui.main_window - INFO - PDF file detected: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-07 21:49:59,980 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 21:50:00,484 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:50:00,547 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:50:02,024 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 21:50:02,025 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:50:06,173 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 21:50:06,189 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:50:06,219 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:50:08,686 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 21:50:08,716 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 21:50:10,092 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 21:50:10,390 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 21:50:10,392 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 21:50:10,393 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 21:50:11,222 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_215011.pdf
+2025-07-07 21:50:11,248 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 21:50:11,251 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_215011.pdf
+2025-07-07 21:50:11,374 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:50:11,411 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_215011.pdf
+2025-07-07 21:50:11,412 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:50:11,413 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:50:11,416 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 21:50:11,418 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250707_215011.xml
+2025-07-07 21:50:11,419 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250707_215011.xml
+2025-07-07 21:50:11,539 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 21:50:11,542 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 21:50:11,545 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 21:50:11,546 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 21:50:11,546 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 21:50:11,549 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:50:11,550 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_215011.pdf
+2025-07-07 21:50:11,550 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:50:11,550 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:50:11,551 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 21:50:11,552 - gui.fax_job_window - INFO - XML generated successfully, length: 494017 characters
+2025-07-07 21:50:11,665 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 21:50:11,695 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 21:50:11,698 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 21:50:11,698 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_215011.pdf
+2025-07-07 21:50:11,699 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 21:50:11,699 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 21:50:11,700 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 21:50:11,703 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 21:50:11,708 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 21:50:11,710 - fax.faxfinder_api - INFO -   XML length: 494017 characters
+2025-07-07 21:50:11,711 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 21:50:11,718 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...E0QkQ5MEE3OTM+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 21:50:11,999 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>cover page url required</message>
+
+</response>
+
+2025-07-07 21:51:49,789 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 21:51:49,791 - gui.main_window - INFO - Window settings saved
+2025-07-07 21:51:49,793 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 21:51:49,794 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 21:51:49,798 - database.connection - INFO - Database connection closed
+2025-07-07 21:51:49,798 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 22:03:04,592 - __main__ - INFO - Starting MCFax Application
+2025-07-07 22:03:04,688 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:03:04,763 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 22:03:04,882 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 22:03:04,883 - gui.main_window - INFO - Database connected successfully
+2025-07-07 22:03:04,886 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:03:04,887 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 22:03:04,887 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 22:03:04,889 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 22:03:04,890 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 22:03:04,899 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:03:04,903 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 22:03:04,905 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 22:03:05,143 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 22:03:08,847 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 22:03:09,352 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:03:09,433 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:03:10,530 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 22:03:10,532 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:03:15,266 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 22:03:15,282 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:03:15,315 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:03:18,156 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:03:18,183 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:03:19,680 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 22:03:19,975 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 22:03:19,977 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 22:03:19,979 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 22:03:21,121 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_220321.pdf
+2025-07-07 22:03:21,146 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:03:21,150 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_220321.pdf
+2025-07-07 22:03:21,262 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:03:21,263 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_220321.pdf
+2025-07-07 22:03:21,264 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:03:21,264 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:03:21,266 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:03:21,269 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250707_220321.xml
+2025-07-07 22:03:21,269 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250707_220321.xml
+2025-07-07 22:03:21,348 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 22:03:21,348 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 22:03:21,351 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 22:03:21,352 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 22:03:21,364 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 22:03:21,367 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:03:21,368 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_220321.pdf
+2025-07-07 22:03:21,370 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:03:21,370 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:03:21,372 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:03:21,373 - gui.fax_job_window - INFO - XML generated successfully, length: 493833 characters
+2025-07-07 22:03:21,395 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 22:03:21,396 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 22:03:21,398 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:03:21,399 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_220321.pdf
+2025-07-07 22:03:21,399 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:03:21,399 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:03:21,400 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:03:21,419 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 22:03:21,419 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 22:03:21,419 - fax.faxfinder_api - INFO -   XML length: 493833 characters
+2025-07-07 22:03:21,420 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 22:03:21,420 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...A2QURGNzRCOUU+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 22:03:21,713 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>invalid name: empty</message>
+
+</response>
+
+2025-07-07 22:04:04,281 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:04:04,282 - gui.main_window - INFO - Window settings saved
+2025-07-07 22:04:04,284 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 22:04:04,285 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 22:04:04,288 - database.connection - INFO - Database connection closed
+2025-07-07 22:04:04,288 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 22:06:01,552 - __main__ - INFO - Starting MCFax Application
+2025-07-07 22:06:01,640 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:06:01,714 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 22:06:01,838 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 22:06:01,839 - gui.main_window - INFO - Database connected successfully
+2025-07-07 22:06:01,842 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:06:01,843 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 22:06:01,844 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 22:06:01,846 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 22:06:01,846 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 22:06:01,854 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:01,858 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 22:06:01,878 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 22:06:02,063 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 22:06:06,881 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:16,882 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:21,885 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:31,884 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:41,876 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:46,878 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:06:51,886 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:01,888 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:11,882 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:21,888 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:31,886 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:36,885 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:46,895 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:07:56,877 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:01,880 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:11,884 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:21,876 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:26,886 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:36,887 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:46,877 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:08:56,881 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:06,888 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:16,883 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:21,886 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:31,887 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:41,877 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:09:46,886 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:14:03,801 - __main__ - INFO - Starting MCFax Application
+2025-07-07 22:14:03,909 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:14:03,996 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 22:14:04,144 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 22:14:04,145 - gui.main_window - INFO - Database connected successfully
+2025-07-07 22:14:04,149 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:14:04,150 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 22:14:04,150 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 22:14:04,152 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 22:14:04,153 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 22:14:04,162 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:14:04,164 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 22:14:04,165 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 22:14:04,378 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 22:14:07,257 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 22:14:07,761 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:14:07,820 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:14:08,688 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 22:14:08,690 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:14:11,298 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 22:14:11,319 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:14:11,350 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:14:13,492 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:14:13,524 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:14:15,275 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 22:14:15,580 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 22:14:15,582 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 22:14:15,583 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 22:14:16,499 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_221416.pdf
+2025-07-07 22:14:16,524 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:14:16,528 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_221416.pdf
+2025-07-07 22:14:16,642 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:14:16,643 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_221416.pdf
+2025-07-07 22:14:16,643 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:14:16,644 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:14:16,646 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:14:16,651 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250707_221416.xml
+2025-07-07 22:14:16,652 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250707_221416.xml
+2025-07-07 22:14:16,754 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 22:14:16,755 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 22:14:16,758 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 22:14:16,758 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 22:14:16,758 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 22:14:16,761 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:14:16,762 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_221416.pdf
+2025-07-07 22:14:16,762 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:14:16,763 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:14:16,764 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:14:16,765 - gui.fax_job_window - INFO - XML generated successfully, length: 493833 characters
+2025-07-07 22:14:16,816 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 22:14:16,816 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 22:14:16,819 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:14:16,819 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_221416.pdf
+2025-07-07 22:14:16,819 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:14:16,820 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:14:16,821 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:14:16,821 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 22:14:16,821 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 22:14:16,822 - fax.faxfinder_api - INFO -   XML length: 493833 characters
+2025-07-07 22:14:16,822 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 22:14:16,823 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...M4QzE0NDRCNjc+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 22:14:17,128 - gui.fax_job_window - ERROR - FaxFinder submission failed: HTTP 400: <?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <message>invalid name: empty</message>
+
+</response>
+
+2025-07-07 22:14:43,510 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:14:43,511 - gui.main_window - INFO - Window settings saved
+2025-07-07 22:14:43,513 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 22:14:43,513 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 22:14:43,520 - database.connection - INFO - Database connection closed
+2025-07-07 22:14:43,520 - gui.main_window - INFO - MCFax Application closed
+2025-07-07 22:30:11,992 - __main__ - INFO - Starting MCFax Application
+2025-07-07 22:30:12,103 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:30:12,185 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-07 22:30:12,295 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-07 22:30:12,296 - gui.main_window - INFO - Database connected successfully
+2025-07-07 22:30:12,300 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:30:12,300 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-07 22:30:12,301 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-07 22:30:12,303 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-07 22:30:12,304 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-07 22:30:12,313 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-07 22:30:12,314 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-07 22:30:12,321 - gui.main_window - INFO - Loaded temp folder from settings: C:/FaxCache
+2025-07-07 22:30:12,532 - __main__ - INFO - MCFax Application started successfully
+2025-07-07 22:30:15,317 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-07 22:30:15,822 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:30:15,896 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:30:16,892 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-07 22:30:16,893 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:30:19,324 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-07 22:30:19,340 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:30:19,369 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:30:21,337 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-07 22:30:21,367 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-07 22:30:22,594 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-07 22:30:22,884 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-07 22:30:22,886 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-07 22:30:22,887 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-07 22:30:24,081 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250707_223024.pdf
+2025-07-07 22:30:24,104 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-07 22:30:24,108 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250707_223024.pdf
+2025-07-07 22:30:24,178 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:30:24,179 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_223024.pdf
+2025-07-07 22:30:24,179 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:30:24,180 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:30:24,181 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:30:24,185 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250707_223024.xml
+2025-07-07 22:30:24,204 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250707_223024.xml
+2025-07-07 22:30:24,279 - gui.fax_job_window - INFO - PDF file size: 369849 bytes (0.4 MB)
+2025-07-07 22:30:24,279 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-07 22:30:24,282 - gui.fax_job_window - INFO - Base64 conversion successful: 493132 characters
+2025-07-07 22:30:24,282 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-07 22:30:24,283 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-07 22:30:24,285 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:30:24,286 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_223024.pdf
+2025-07-07 22:30:24,286 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:30:24,287 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:30:24,288 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:30:24,288 - gui.fax_job_window - INFO - XML generated successfully, length: 493799 characters
+2025-07-07 22:30:24,308 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-07 22:30:24,308 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-07 22:30:24,311 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-07 22:30:24,324 - fax.xml_generator - INFO -   File: processed\fax_job_20250707_223024.pdf
+2025-07-07 22:30:24,325 - fax.xml_generator - INFO -   Size: 369849 bytes (0.4 MB)
+2025-07-07 22:30:24,325 - fax.xml_generator - INFO -   Base64 length: 493132 characters
+2025-07-07 22:30:24,326 - fax.xml_generator - INFO - Generated FaxFinder XML with 493132 character PDF using correct FF240.R1 format
+2025-07-07 22:30:24,326 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-07 22:30:24,327 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-07 22:30:24,327 - fax.faxfinder_api - INFO -   XML length: 493799 characters
+2025-07-07 22:30:24,328 - fax.faxfinder_api - INFO -   Base64 PDF content: 493132 characters
+2025-07-07 22:30:24,328 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...RDOTU4ODNGNEI+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK
+2025-07-07 22:30:24,629 - gui.fax_job_window - INFO - Successfully submitted fax to FaxFinder: https://10.70.1.13/ffws/v1/ofax/00000D07%2F0000
+2025-07-07 22:30:30,497 - core.settings - INFO - Settings saved to: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-07 22:30:30,498 - gui.main_window - INFO - Window settings saved
+2025-07-07 22:30:30,499 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-07 22:30:30,500 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-07 22:30:30,504 - database.connection - INFO - Database connection closed
+2025-07-07 22:30:30,505 - gui.main_window - INFO - MCFax Application closed
+2025-07-08 06:40:18,256 - __main__ - INFO - Starting MCFax Application
+2025-07-08 06:40:18,392 - core.settings_portable - INFO - No settings file found, using defaults
+2025-07-08 06:40:18,393 - core.settings_portable - INFO - Creating settings file with default values
+2025-07-08 06:40:18,395 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\settings.json
+2025-07-08 06:40:18,508 - gui.main_window - INFO - Window settings loaded from configuration
+2025-07-08 06:40:18,745 - database.connection - INFO - Successfully connected to database MCFAX on 10.2.1.176
+2025-07-08 06:40:18,746 - gui.main_window - INFO - Database connected successfully
+2025-07-08 06:40:18,750 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\settings.json
+2025-07-08 06:40:18,751 - core.folder_watcher - INFO - Folder set for monitoring: C:\MCFaxApp\temp (recursive: False)
+2025-07-08 06:40:18,752 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-08 06:40:18,754 - core.folder_watcher - INFO - Started monitoring folder: C:\MCFaxApp\temp
+2025-07-08 06:40:18,754 - gui.main_window - INFO - Started folder monitoring for: C:\MCFaxApp\temp
+2025-07-08 06:40:18,756 - pdf.pdf_browser - INFO - Found 0 PDF files in C:\MCFaxApp\temp
+2025-07-08 06:40:18,756 - gui.main_window - INFO - Temp folder set to: C:\MCFaxApp\temp
+2025-07-08 06:40:18,950 - __main__ - INFO - MCFax Application started successfully
+2025-07-08 06:40:28,758 - pdf.pdf_browser - INFO - Found 0 PDF files in C:\MCFaxApp\temp
+2025-07-08 06:40:34,022 - pdf.pdf_browser - INFO - Found 0 PDF files in C:\MCFaxApp\temp
+2025-07-08 06:40:43,454 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\settings.json
+2025-07-08 06:40:43,456 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-08 06:40:43,457 - core.folder_watcher - INFO - Folder set for monitoring: C:\FaxCache (recursive: False)
+2025-07-08 06:40:43,457 - core.folder_watcher - INFO - PDF detection callback set
+2025-07-08 06:40:43,459 - core.folder_watcher - INFO - Started monitoring folder: C:\FaxCache
+2025-07-08 06:40:43,463 - gui.main_window - INFO - Started folder monitoring for: C:\FaxCache
+2025-07-08 06:40:43,517 - pdf.pdf_browser - INFO - Found 2 PDF files in C:\FaxCache
+2025-07-08 06:40:43,524 - gui.main_window - INFO - Temp folder set to: C:/FaxCache
+2025-07-08 06:40:43,995 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-08 06:40:43,996 - gui.main_window - INFO - PDF file detected: C:\FaxCache\GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-08 06:40:44,498 - core.folder_watcher - INFO - PDF file modified: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-08 06:40:44,499 - gui.main_window - INFO - PDF file detected: C:\FaxCache\US Home _ Daily Mail OnlineSYSTEM7_2_2025 11_03_08 AM.pdf
+2025-07-08 06:40:54,968 - core.settings - INFO - Settings loaded from: C:\Users\Developer\AppData\Local\MCFax Solutions\MCFax\MCFax\settings.json
+2025-07-08 06:40:54,970 - gui.fax_job_window - INFO - Loaded sender information from settings
+2025-07-08 06:40:55,456 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-08 06:40:55,518 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-08 06:40:56,735 - gui.integrated_pdf_viewer - INFO - Loaded PDF: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf with 1 pages
+2025-07-08 06:40:56,737 - gui.fax_job_window - INFO - Loaded PDF in integrated viewer: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-08 06:40:58,667 - gui.fax_job_window - INFO - Selected contact: Test Contact - 555-123-4567
+2025-07-08 06:40:58,686 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-08 06:40:58,712 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-08 06:41:03,297 - pdf.cover_page - INFO - Cover page generated successfully: temp_cover_preview.pdf
+2025-07-08 06:41:03,324 - gui.fax_job_window - INFO - Cover page visual preview updated successfully
+2025-07-08 06:41:04,897 - pdf.cover_page - INFO - Cover page generated successfully: temp_final_cover.pdf
+2025-07-08 06:41:05,213 - gui.integrated_pdf_viewer - INFO - Loaded PDF: temp_final_preview.pdf with 2 pages
+2025-07-08 06:41:05,215 - gui.fax_job_window - INFO - Loaded final preview: temp_final_preview.pdf
+2025-07-08 06:41:05,216 - gui.fax_job_window - INFO - Final preview generated successfully
+2025-07-08 06:41:07,912 - pdf.cover_page - INFO - Cover page generated successfully: temp\cover_20250708_064107.pdf
+2025-07-08 06:41:07,936 - gui.fax_job_window - INFO - Added PDF to final document: GoogleSYSTEM7_2_2025 11_50_08 AM.pdf
+2025-07-08 06:41:07,943 - gui.fax_job_window - INFO - Generated final PDF: processed\fax_job_20250708_064107.pdf
+2025-07-08 06:41:08,061 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-08 06:41:08,061 - fax.xml_generator - INFO -   File: processed\fax_job_20250708_064107.pdf
+2025-07-08 06:41:08,062 - fax.xml_generator - INFO -   Size: 369851 bytes (0.4 MB)
+2025-07-08 06:41:08,062 - fax.xml_generator - INFO -   Base64 length: 493136 characters
+2025-07-08 06:41:08,064 - fax.xml_generator - INFO - Generated FaxFinder XML with 493136 character PDF using correct FF240.R1 format
+2025-07-08 06:41:08,067 - gui.fax_job_window - INFO - Generated XML file with base64 content: C:\MCFaxApp\xml\fax_job_20250708_064108.xml
+2025-07-08 06:41:08,067 - gui.fax_job_window - INFO - Generated local XML file with base64: C:\MCFaxApp\xml\fax_job_20250708_064108.xml
+2025-07-08 06:41:08,164 - gui.fax_job_window - INFO - PDF file size: 369851 bytes (0.4 MB)
+2025-07-08 06:41:08,167 - gui.fax_job_window - INFO - === DEBUG: Testing Base64 conversion locally ===
+2025-07-08 06:41:08,170 - gui.fax_job_window - INFO - Base64 conversion successful: 493136 characters
+2025-07-08 06:41:08,189 - gui.fax_job_window - INFO - Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L1R5...
+2025-07-08 06:41:08,190 - gui.fax_job_window - INFO - === DEBUG: Testing XML generation ===
+2025-07-08 06:41:08,193 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-08 06:41:08,194 - fax.xml_generator - INFO -   File: processed\fax_job_20250708_064107.pdf
+2025-07-08 06:41:08,194 - fax.xml_generator - INFO -   Size: 369851 bytes (0.4 MB)
+2025-07-08 06:41:08,194 - fax.xml_generator - INFO -   Base64 length: 493136 characters
+2025-07-08 06:41:08,195 - fax.xml_generator - INFO - Generated FaxFinder XML with 493136 character PDF using correct FF240.R1 format
+2025-07-08 06:41:08,196 - gui.fax_job_window - INFO - XML generated successfully, length: 493803 characters
+2025-07-08 06:41:08,330 - gui.fax_job_window - INFO - Debug XML saved to: debug_xml_with_base64.xml
+2025-07-08 06:41:08,331 - gui.fax_job_window - INFO - === DEBUG: Submitting to FaxFinder ===
+2025-07-08 06:41:08,333 - fax.xml_generator - INFO - Processing PDF for FaxFinder submission:
+2025-07-08 06:41:08,334 - fax.xml_generator - INFO -   File: processed\fax_job_20250708_064107.pdf
+2025-07-08 06:41:08,334 - fax.xml_generator - INFO -   Size: 369851 bytes (0.4 MB)
+2025-07-08 06:41:08,334 - fax.xml_generator - INFO -   Base64 length: 493136 characters
+2025-07-08 06:41:08,336 - fax.xml_generator - INFO - Generated FaxFinder XML with 493136 character PDF using correct FF240.R1 format
+2025-07-08 06:41:08,336 - fax.faxfinder_api - INFO - Submitting to FaxFinder:
+2025-07-08 06:41:08,336 - fax.faxfinder_api - INFO -   URL: http://10.70.1.13/ffws/v1/ofax
+2025-07-08 06:41:08,337 - fax.faxfinder_api - INFO -   XML length: 493803 characters
+2025-07-08 06:41:08,337 - fax.faxfinder_api - INFO -   Base64 PDF content: 493136 characters
+2025-07-08 06:41:08,338 - fax.faxfinder_api - INFO -   Base64 sample: JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG...JBODlGMEFCQT5dPj4Kc3RhcnR4cmVmCjM2Nzg1MgolJUVPRgo=
+2025-07-08 06:41:08,669 - gui.fax_job_window - INFO - Successfully submitted fax to FaxFinder: https://10.70.1.13/ffws/v1/ofax/00000D08%2F0000
+2025-07-08 06:43:04,926 - core.settings_portable - INFO - Settings saved to: C:\MCFaxApp\settings.json
+2025-07-08 06:43:04,926 - gui.main_window - INFO - Window settings saved
+2025-07-08 06:43:04,930 - core.folder_watcher - INFO - Stopped folder monitoring
+2025-07-08 06:43:04,933 - gui.main_window - INFO - Folder monitoring stopped
+2025-07-08 06:43:04,948 - database.connection - INFO - Database connection closed
+2025-07-08 06:43:04,948 - gui.main_window - INFO - MCFax Application closed

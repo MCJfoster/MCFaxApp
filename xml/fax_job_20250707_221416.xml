@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule_fax>
+  <sender>
+    <n>Suzy Sneder</n>
+    <organization>The Spine Hospital Louisiana</organization>
+  </sender>
+  <recipient>
+    <n>Test Contact</n>
+    <fax_number>555-123-4567</fax_number>
+    <organization>Test Organization</organization>
+    <email_address>test@example.com</email_address>
+  </recipient>
+  <priority>3</priority>
+  <max_tries>3</max_tries>
+  <try_interval>5</try_interval>
+  <attachment>
+    <location>inline</location>
+    <n>fax_job_20250707_221416.pdf</n>
+    <content_type>application/pdf</content_type>
+    <content_transfer_encoding>base64</content_transfer_encoding>
+    <content>JVBERi0xLjcKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSP...E0NDRCNjc+XT4+CnN0YXJ0eHJlZgozNjc4NTAKJSVFT0YK</content>
+  </attachment>
+</schedule_fax>

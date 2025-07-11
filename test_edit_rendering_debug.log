@@ -1,0 +1,178 @@
+2025-07-11 05:48:47,222 - __main__ - INFO - === Testing redaction rendering ===
+2025-07-11 05:48:47,230 - __main__ - INFO - === Testing highlight rendering ===
+2025-07-11 05:48:47,235 - __main__ - INFO - === Testing text annotation ===
+2025-07-11 05:48:47,630 - __main__ - INFO - Edit data structure: {
+  "pages": [
+    {
+      "page_number": 0,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "redaction",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              350,
+              700
+            ],
+            [
+              350,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 15,
+          "color": "#000000"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 650,
+          "text": "TEST REDACTION ANNOTATION",
+          "color": "#FF0000",
+          "size": 12
+        }
+      ]
+    },
+    {
+      "page_number": 1,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "highlight",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              380,
+              700
+            ],
+            [
+              380,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 10,
+          "color": "#FFFF00"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 600,
+          "text": "TEST HIGHLIGHT ANNOTATION",
+          "color": "#0000FF",
+          "size": 12
+        }
+      ]
+    }
+  ]
+}
+2025-07-11 05:48:47,650 - __main__ - INFO - === Applying edits to PDF ===
+2025-07-11 05:48:47,651 - __main__ - INFO - Input PDF: test_input.pdf
+2025-07-11 05:48:47,651 - __main__ - INFO - Output PDF: test_edit_rendering_output.pdf
+2025-07-11 05:48:47,651 - __main__ - INFO - Edit data: 2 pages with edits
+2025-07-11 05:48:47,706 - pdf.pdf_processor - INFO - Applied edits to PDF: test_edit_rendering_output.pdf
+2025-07-11 05:48:47,715 - __main__ - INFO - Input PDF size: 2136 bytes
+2025-07-11 05:48:47,715 - __main__ - INFO - Output PDF size: 5312 bytes
+2025-07-11 05:48:47,778 - __main__ - INFO - Edit data structure: {
+  "pages": [
+    {
+      "page_number": 0,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "redaction",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              350,
+              700
+            ],
+            [
+              350,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 15,
+          "color": "#000000"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 650,
+          "text": "TEST REDACTION ANNOTATION",
+          "color": "#FF0000",
+          "size": 12
+        }
+      ]
+    },
+    {
+      "page_number": 1,
+      "excluded": false,
+      "brush_strokes": [
+        {
+          "type": "highlight",
+          "points": [
+            [
+              200,
+              700
+            ],
+            [
+              380,
+              700
+            ],
+            [
+              380,
+              715
+            ],
+            [
+              200,
+              715
+            ]
+          ],
+          "brush_size": 10,
+          "color": "#FFFF00"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "text",
+          "x": 400,
+          "y": 600,
+          "text": "TEST HIGHLIGHT ANNOTATION",
+          "color": "#0000FF",
+          "size": 12
+        }
+      ]
+    }
+  ]
+}
+2025-07-11 05:48:47,786 - __main__ - INFO - === Testing complete pipeline (combine_pdfs_with_edits) ===
+2025-07-11 05:48:47,856 - pdf.pdf_processor - INFO - Applied edits to PDF: temp_edited_pdfs\edited_test_input.pdf
+2025-07-11 05:48:47,857 - pdf.pdf_processor - INFO - Using edited version of test_input.pdf
+2025-07-11 05:48:47,956 - pdf.pdf_processor - INFO - Successfully combined 1 PDFs into test_complete_pipeline_output.pdf

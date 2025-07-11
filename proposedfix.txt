@@ -1,0 +1,152 @@
+def submit_to_faxfinder(self, fax_job: FaxJob, pdf_path: str) -> Dict[str, Any]:
+    """Submit the fax job to FaxFinder using the correct API method"""
+    try:
+        from core.settings import get_settings
+        from fax.faxfinder_api import FaxFinderAPI
+        
+        # Get FaxFinder settings
+        settings = get_settings()
+        faxfinder_settings = settings.get_faxfinder_settings()
+        
+        # Check if FaxFinder is configured
+        if not faxfinder_settings.get('host'):
+            return {
+                'success': False,
+                'error': 'FaxFinder not configured. Please configure FaxFinder settings first.'
+            }
+        
+        # Create FaxFinder API client
+        api = FaxFinderAPI(
+            host=faxfinder_settings['host'],
+            username=faxfinder_settings['username'],
+            password=faxfinder_settings['password'],
+            use_https=faxfinder_settings.get('use_https', False)
+        )
+        
+        # Test connection first
+        connection_test = api.test_connection()
+        if not connection_test['success']:
+            return {
+                'success': False,
+                'error': f'Cannot connect to FaxFinder: {connection_test.get("error", "Unknown connection error")}'
+            }
+        
+        # Get selected contact
+        current_contact = self.contact_list.currentItem()
+        if not current_contact:
+            return {
+                'success': False,
+                'error': 'No contact selected for submission'
+            }
+        
+        contact = current_contact.data(Qt.ItemDataRole.UserRole)
+        
+        # DEBUG: Verify PDF file exists and is readable
+        if not os.path.exists(pdf_path):
+            self.logger.error(f"PDF file does not exist: {pdf_path}")
+            return {
+                'success': False,
+                'error': f'PDF file not found: {pdf_path}'
+            }
+        
+        # DEBUG: Check file size
+        file_size = os.path.getsize(pdf_path)
+        self.logger.info(f"PDF file size: {file_size} bytes ({file_size/1024/1024:.1f} MB)")
+        
+        # DEBUG: Test base64 conversion locally before sending
+        try:
+            self.logger.info("=== DEBUG: Testing Base64 conversion locally ===")
+            with open(pdf_path, 'rb') as test_file:
+                pdf_data = test_file.read()
+                pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+                self.logger.info(f"Base64 conversion successful: {len(pdf_base64)} characters")
+                self.logger.info(f"Base64 sample: {pdf_base64[:100]}...")
+        except Exception as base64_error:
+            self.logger.error(f"Base64 conversion failed: {base64_error}")
+            return {
+                'success': False,
+                'error': f'Base64 conversion failed: {str(base64_error)}'
+            }
+        
+        # DEBUG: Test XML generation before submission
+        self.logger.info("=== DEBUG: Testing XML generation ===")
+        from fax.xml_generator import FaxXMLGenerator
+        test_generator = FaxXMLGenerator()
+        
+        try:
+            test_xml = test_generator.generate_faxfinder_xml(fax_job, contact, pdf_path)
+            
+            if test_xml:
+                self.logger.info(f"XML generated successfully, length: {len(test_xml)} characters")
+                
+                # Check for base64 content in XML
+                if 'base64' in test_xml:
+                    self.logger.info("✓ Base64 content found in XML")
+                    
+                    # Extract and verify base64 content
+                    start_marker = '<content encoding="base64">'
+                    end_marker = '</content>'
+                    start_pos = test_xml.find(start_marker)
+                    end_pos = test_xml.find(end_marker)
+                    
+                    if start_pos != -1 and end_pos != -1:
+                        start_pos += len(start_marker)
+                        base64_content = test_xml[start_pos:end_pos].strip()
+                        self.logger.info(f"✓ Extracted base64 content: {len(base64_content)} characters")
+                        
+                        # Verify it's valid base64
+                        try:
+                            import base64
+                            decoded = base64.b64decode(base64_content)
+                            self.logger.info(f"✓ Base64 validation successful: {len(decoded)} bytes")
+                        except Exception as b64_error:
+                            self.logger.error(f"✗ Base64 validation failed: {b64_error}")
+                    else:
+                        self.logger.error("✗ Base64 content markers not found in XML")
+                else:
+                    self.logger.error("✗ No base64 content found in XML")
+                    
+                # Save debug XML for inspection
+                debug_xml_path = "debug_xml_with_base64.xml"
+                with open(debug_xml_path, 'w', encoding='utf-8') as f:
+                    f.write(test_xml)
+                self.logger.info(f"Debug XML saved to: {debug_xml_path}")
+                
+            else:
+                self.logger.error("XML generation returned None/empty")
+                return {
+                    'success': False,
+                    'error': 'XML generation failed'
+                }
+                
+        except Exception as xml_error:
+            self.logger.error(f"XML generation failed: {xml_error}")
+            return {
+                'success': False,
+                'error': f'XML generation failed: {str(xml_error)}'
+            }
+        
+        # Use the correct submit_fax_job method that calls generate_faxfinder_xml
+        self.logger.info("=== DEBUG: Submitting to FaxFinder ===")
+        result = api.submit_fax_job(fax_job, contact, pdf_path)
+        
+        if result['success']:
+            self.logger.info(f"Successfully submitted fax to FaxFinder: {result.get('fax_entry_url', 'No URL returned')}")
+            return {
+                'success': True,
+                'fax_entry_url': result.get('fax_entry_url'),
+                'message': 'Fax submitted successfully to FaxFinder'
+            }
+        else:
+            self.logger.error(f"FaxFinder submission failed: {result.get('error', 'Unknown error')}")
+            return {
+                'success': False,
+                'error': result.get('error', 'Unknown FaxFinder error')
+            }
+            
+    except Exception as e:
+        self.logger.error(f"Error submitting to FaxFinder: {e}")
+        return {
+            'success': False,
+            'error': f'Submission error: {str(e)}'
+        }
